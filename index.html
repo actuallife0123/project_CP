@@ -1,0 +1,28 @@
+
+<html>
+
+<title> Test CPF </title>
+
+<body>
+
+<script>
+
+ui.set("title", "Manual Mode");
+
+var power = ui.get("white led");
+cpf.set("white led", power);
+
+if (power == 1) {
+    var speed = ui.get("fan");
+    cpf.set("fan", speed);
+} else{
+    cpf.set("fan", 0);
+    ui.set("fan", 0);
+}
+cpf.repeat();
+
+</script>
+
+</body>
+
+</html>
