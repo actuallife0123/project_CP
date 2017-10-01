@@ -1,22 +1,30 @@
-
 <html>
-
-<title> Test CPF </title>
-
-<body>
-
-This is CPF test!
-    
-test2!
-    
-    haha
-
-<script>
-   
-cpf.set("white led", 1);
-
-</script>
-
-</body>
-
+  <head>
+    <title>
+      ChiGiStudio
+    </title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <input id='che1' type='checkbox'>connect CPF</input>
+    <center>
+    <input id='btn1' type="image" width=500 height=500 src="light_off.png" onclick="ctrlBulb()"></input>
+    </center>
+  </body>
+  <script>
+    var power=0
+    function ctrlBulb(){
+      if(connect){var ret = cpf.request('["resetPin"],["setPinMode", "digital", 2, "OUTPUT"]');}
+      var connect=document.getElementById('che1').checked
+      if(power==0){
+        document.getElementById('btn1').src='light_on.png'
+        power=1
+        if(connect){cpf.set("white led", power);}
+      }else{
+        document.getElementById('btn1').src='light_off.png'
+        power=0
+        if(connect){cpf.set("white led", power);}
+      }  
+    }
+  </script>
 </html>
